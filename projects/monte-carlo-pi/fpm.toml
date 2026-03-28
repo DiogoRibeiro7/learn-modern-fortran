@@ -1,0 +1,6 @@
+name = "monte_carlo_pi"
+version = "0.1.0"
+license = "MIT"
+author = "Diogo Ribeiro"
+maintainer = "Diogo Ribeiro"
+copyright = "2026 Diogo Ribeiro"

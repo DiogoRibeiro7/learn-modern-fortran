@@ -1,0 +1,29 @@
+# macOS
+.DS_Store
+
+# editors
+.vscode/
+.idea/
+*.swp
+
+# build outputs
+build/
+dist/
+out/
+*.o
+*.obj
+*.mod
+*.smod
+*.a
+*.so
+*.dll
+*.dylib
+*.exe
+
+# testing
+coverage/
+*.gcda
+*.gcno
+
+# fpm
+.fpm/

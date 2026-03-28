@@ -1,0 +1,11 @@
+name = "ode_solver"
+version = "0.1.0"
+license = "MIT"
+author = "Diogo Ribeiro"
+maintainer = "Diogo Ribeiro"
+copyright = "2026 Diogo Ribeiro"
+
+[build]
+auto-executables = true
+auto-tests = true
+auto-examples = false
