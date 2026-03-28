@@ -22,4 +22,4 @@ Fortran often lives inside larger systems. Knowing the boundary with C helps you
 
 ## Suggested next step
 
-Move to `lessons/09-legacy-to-modern/README.md`.
+Move to [Lesson 09 — Legacy to modern](../09-legacy-to-modern/README.md).

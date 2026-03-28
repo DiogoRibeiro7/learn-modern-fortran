@@ -24,4 +24,4 @@ This is where syntax starts turning into applied scientific programming.
 
 ## Suggested next step
 
-Explore the `projects/` directory.
+Explore the [projects/](../../projects/README.md) directory.

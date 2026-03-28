@@ -1,0 +1,53 @@
+name: Build Checks
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build ${{ matrix.package.name }}
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        package:
+          - name: hello
+            path: examples/hello
+          - name: basics
+            path: examples/basics
+          - name: arrays-procedures
+            path: examples/arrays-procedures
+          - name: matrix-basics
+            path: examples/matrix-basics
+          - name: statistics
+            path: examples/statistics
+          - name: modules-types
+            path: examples/modules-types
+          - name: file-processing
+            path: examples/file-processing
+          - name: vector-ops
+            path: examples/vector-ops
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Fortran compiler
+        uses: fortran-lang/setup-fortran@v1
+        with:
+          compiler: gcc
+          version: latest
+
+      - name: Set up fpm
+        # fpm is installed explicitly so learners can see that CI uses the same
+        # package manager workflow described in the lessons.
+        uses: fortran-lang/setup-fpm@v7
+
+      - name: Build package
+        working-directory: ${{ matrix.package.path }}
+        run: fpm build

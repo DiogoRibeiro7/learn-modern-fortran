@@ -39,6 +39,7 @@ Please check:
 - keep indentation consistent
 - prefer clear names over short names
 - document tricky numerical assumptions
+- follow [docs/style-guide.md](docs/style-guide.md) for code, lesson, and exercise conventions
 
 ## Issues
 

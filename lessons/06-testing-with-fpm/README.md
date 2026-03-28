@@ -23,4 +23,4 @@ Testing turns examples into maintainable projects. Numerical code also benefits 
 
 ## Suggested next step
 
-Move to `lessons/07-numerical-mini-projects/README.md`.
+Move to [Lesson 07 — Numerical mini-projects](../07-numerical-mini-projects/README.md).

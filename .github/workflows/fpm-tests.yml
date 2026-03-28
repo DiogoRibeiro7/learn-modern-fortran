@@ -1,0 +1,51 @@
+name: FPM Tests
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Test ${{ matrix.package.name }}
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        package:
+          - name: arrays-procedures
+            path: examples/arrays-procedures
+          - name: statistics
+            path: examples/statistics
+          - name: modules-types
+            path: examples/modules-types
+          - name: vector-ops
+            path: examples/vector-ops
+          - name: monte-carlo-pi
+            path: projects/monte-carlo-pi
+          - name: ode-solver
+            path: projects/ode-solver
+          - name: matrix-toolkit
+            path: projects/matrix-toolkit
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Fortran compiler
+        uses: fortran-lang/setup-fortran@v1
+        with:
+          compiler: gcc
+          version: latest
+
+      - name: Set up fpm
+        uses: fortran-lang/setup-fpm@v7
+
+      - name: Run package tests
+        # Each matrix entry is an independent fpm package, so we switch into the
+        # package directory before running `fpm test`.
+        working-directory: ${{ matrix.package.path }}
+        run: fpm test
