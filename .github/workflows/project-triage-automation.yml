@@ -1,0 +1,87 @@
+name: Project triage automation
+
+on:
+  issues:
+    types: [labeled]
+
+permissions:
+  issues: write
+  projects: write
+
+jobs:
+  move-triage-to-do:
+    if: github.event.label.name == 'triage'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add triaged issue to Fortran Roadmap project and set status
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const projectId = 'PVT_kwHOAPOdyM4BTDtE';
+            const statusFieldId = 'PVTSSF_lAHOAPOdyM4BTDtEzhAaTbA';
+            const todoOptionId = 'f75ad846'; // Todo option from project Status field
+            const issueNodeId = context.payload.issue.node_id;
+
+            // Check if issue is already on project
+            const issueProjectsQuery = `
+              query getIssueProjectItems($issueId: ID!) {
+                node(id: $issueId) {
+                  ... on Issue {
+                    projectItems(first: 50) {
+                      nodes {
+                        id
+                        project {
+                          id
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            `;
+
+            const issueProjects = await github.graphql(issueProjectsQuery, { issueId: issueNodeId });
+            const projectItems = issueProjects.node.projectItems.nodes;
+            let itemId = null;
+
+            const currentItem = projectItems.find((item) => item.project?.id === projectId);
+            if (currentItem) {
+              itemId = currentItem.id;
+            } else {
+              const addResult = await github.graphql(
+                `mutation addProjectItem($projectId: ID!, $contentId: ID!) {
+                  addProjectV2ItemById(input: { projectId: $projectId, contentId: $contentId }) {
+                    item {
+                      id
+                    }
+                  }
+                }`,
+                { projectId, contentId: issueNodeId }
+              );
+              itemId = addResult.addProjectV2ItemById.item.id;
+            }
+
+            if (!itemId) {
+              throw new Error('Could not resolve project item ID.');
+            }
+
+            await github.graphql(
+              `mutation setStatus($projectId: ID!, $itemId: ID!, $fieldId: ID!, $value: String!) {
+                updateProjectV2ItemFieldValue(input: {
+                  projectId: $projectId,
+                  itemId: $itemId,
+                  fieldId: $fieldId,
+                  value: $value
+                }) {
+                  projectV2Item {
+                    id
+                  }
+                }
+              }`,
+              {
+                projectId,
+                itemId,
+                fieldId: statusFieldId,
+                value: JSON.stringify({ singleSelectOptionId: todoOptionId }),
+              }
+            );
