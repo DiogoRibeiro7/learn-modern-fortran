@@ -7,5 +7,5 @@ copyright = "2026 Diogo Ribeiro"
 
 [build]
 auto-executables = true
-auto-tests = false
+auto-tests = true
 auto-examples = false

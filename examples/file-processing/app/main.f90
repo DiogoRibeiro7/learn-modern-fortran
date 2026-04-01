@@ -5,30 +5,21 @@
 !   fpm run
 
 program main
+  use file_processing_mod, only: read_measurements, compute_statistics
   implicit none
 
   integer, parameter :: max_values = 1000
   real :: values(max_values)
-  integer :: u_in, u_out, ios, n
+  integer :: ios, n, u_out
   real :: mean_val, min_val, max_val, std_val
 
   ! --- Read data ---
-  open(newunit=u_in, file="data/measurements.txt", status="old", &
-       action="read", iostat=ios)
+  call read_measurements("data/measurements.txt", values, n, ios)
   if (ios /= 0) then
     print *, "Error: could not open data/measurements.txt"
     print *, "Make sure you run from the examples/file-processing/ directory."
     error stop 1
   end if
-
-  n = 0
-  do
-    read(u_in, *, iostat=ios) values(n + 1)
-    if (ios /= 0) exit
-    n = n + 1
-    if (n >= max_values) exit
-  end do
-  close(u_in)
 
   if (n == 0) then
     print *, "No data read."
@@ -36,10 +27,7 @@ program main
   end if
 
   ! --- Compute statistics ---
-  mean_val = sum(values(1:n)) / real(n)
-  min_val  = minval(values(1:n))
-  max_val  = maxval(values(1:n))
-  std_val  = sqrt(sum((values(1:n) - mean_val) ** 2) / real(n))
+  call compute_statistics(values, n, mean_val, min_val, max_val, std_val)
 
   ! --- Print to screen ---
   print '(A, I4, A)', "Read ", n, " measurements."
