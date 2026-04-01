@@ -2,6 +2,24 @@
 
 All notable repository-level changes are recorded here.
 
+## [v0.8] - 2026-03-15
+
+### Added
+
+- new lesson 06: testing with `fpm`, custom assertion patterns, and numeric tolerance strategies
+- new lesson 07: numerical mini-projects (Monte Carlo π, ODE solver, matrix toolkit) with testing discipline
+- new lesson 08: C interop using `iso_c_binding`, Fortran/C call examples, and build/link guidance
+- release planning notes in [ROADMAP.md](ROADMAP.md) and milestone definition for v0.8
+- release summary in [RELEASE_NOTES_v1.0.md](RELEASE_NOTES_v1.0.md) covering v0.8 work
+
+### Changed
+
+- updated project and lesson structure to make 06-08 explicit milestone path in README
+
+### Fixed
+
+- (no functional code changes in v0.8 docs work)
+
 ## [v1.0] - 2026-03-28
 
 ### Added
