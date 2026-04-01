@@ -100,3 +100,12 @@ Solutions for [intermediate/02-file-io.md](../intermediate/02-file-io.md):
 - [fileio_08_pipeline.f90](intermediate/fileio_08_pipeline.f90)
 
 Sample data files for file I/O exercises are in [intermediate/data/](intermediate/data/).
+
+## Intermediate — Pointers (Lesson 03)
+
+Solutions for [intermediate/03-pointers.md](../intermediate/03-pointers.md):
+
+- [pointers_01_scalar_alias.f90](intermediate/pointers_01_scalar_alias.f90)
+- [pointers_02_dynamic_array.f90](intermediate/pointers_02_dynamic_array.f90)
+- [pointers_03_slice_alias.f90](intermediate/pointers_03_slice_alias.f90)
+- [pointers_04_linked_list.f90](intermediate/pointers_04_linked_list.f90)

@@ -23,6 +23,7 @@ one topic, maps to a specific lesson, and is ordered from easy to hard.
 | [03 — Arrays, control flow, procedures](../lessons/03-arrays-procedures/) | [beginner/04-procedures.md](beginner/04-procedures.md) | Functions, subroutines, `intent`, `result`, assumed-shape | 8 |
 | [04 — Modules](../lessons/04-modules-types/) | [intermediate/01-modules.md](intermediate/01-modules.md) | Modules, `use`/`only`, derived types, type-bound procedures | 10 |
 | [05 — File I/O](../lessons/05-file-io/) | [intermediate/02-file-io.md](intermediate/02-file-io.md) | File reading, writing, `iostat`, data pipelines | 8 |
+| [Core Fortran pointers](../lessons/03-arrays-procedures/) | [intermediate/03-pointers.md](intermediate/03-pointers.md) | Pointer association, target, allocatable, recursive objects | 4 |
 
 **Total: 58 exercises across 7 sets.**
 
@@ -36,6 +37,7 @@ one topic, maps to a specific lesson, and is ordered from easy to hard.
 | Procedures | [04-procedures.md](beginner/04-procedures.md) |
 | Modules | [01-modules.md](intermediate/01-modules.md) |
 | File I/O | [02-file-io.md](intermediate/02-file-io.md) |
+| Pointers | [03-pointers.md](intermediate/03-pointers.md) |
 
 ## Solutions
 
