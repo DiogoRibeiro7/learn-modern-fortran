@@ -101,6 +101,19 @@ Solutions for [intermediate/02-file-io.md](../intermediate/02-file-io.md):
 
 Sample data files for file I/O exercises are in [intermediate/data/](intermediate/data/).
 
+## Intermediate — Testing (Lesson 06)
+
+Solutions for [intermediate/04-testing.md](../intermediate/04-testing.md):
+
+- [testing_01_square.f90](intermediate/testing_01_square.f90)
+- [testing_02_mean_edges.f90](intermediate/testing_02_mean_edges.f90)
+- [testing_03_array_op.f90](intermediate/testing_03_array_op.f90)
+- [testing_04_stats_pair.f90](intermediate/testing_04_stats_pair.f90)
+- [testing_05_boundary.f90](intermediate/testing_05_boundary.f90)
+- [testing_06_derived_type.f90](intermediate/testing_06_derived_type.f90)
+- [testing_07_diagnostics.f90](intermediate/testing_07_diagnostics.f90)
+- [testing_08_full_suite.f90](intermediate/testing_08_full_suite.f90)
+
 ## Intermediate — Pointers (Lesson 03)
 
 Solutions for [intermediate/03-pointers.md](../intermediate/03-pointers.md):

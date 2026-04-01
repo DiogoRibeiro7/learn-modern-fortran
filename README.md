@@ -9,8 +9,8 @@ using `fpm` (Fortran Package Manager) as the default workflow.
 The repository is coherent and usable as a teaching resource today, but it is
 important to be precise about scope:
 
-- lessons 01-05 and 09 are fully expanded
-- lessons 06-08 are shorter guidance lessons rather than full deep-dive chapters
+- lessons 01-06 and 09 are fully expanded
+- lessons 07-08 are shorter guidance lessons rather than full deep-dive chapters
 - examples and mini-projects are runnable standalone `fpm` packages
 - reusable modules in examples and projects have lightweight tests where that is practical
 
@@ -140,7 +140,7 @@ and links to a companion example you can build and run.
 | 03 | [Arrays, control flow, procedures](lessons/03-arrays-procedures/README.md) | [arrays-procedures](examples/arrays-procedures/) | [beginner/02-04](exercises/README.md) |
 | 04 | [Modules and derived types](lessons/04-modules-types/README.md) | [modules-types](examples/modules-types/) | [intermediate/01](exercises/intermediate/01-modules.md) |
 | 05 | [File I/O](lessons/05-file-io/README.md) | [file-processing](examples/file-processing/) | [intermediate/02](exercises/intermediate/02-file-io.md) |
-| 06 | [Testing with fpm](lessons/06-testing-with-fpm/README.md) | [vector-ops](examples/vector-ops/) | -- |
+| 06 | [Testing with fpm](lessons/06-testing-with-fpm/README.md) | [vector-ops](examples/vector-ops/) | [intermediate/04](exercises/intermediate/04-testing.md) |
 | 07 | [Numerical mini-projects](lessons/07-numerical-mini-projects/README.md) | -- | -- |
 | 08 | [C interoperability](lessons/08-c-interop/README.md) | -- | -- |
 | 09 | [Legacy to modern](lessons/09-legacy-to-modern/README.md) | -- | -- |

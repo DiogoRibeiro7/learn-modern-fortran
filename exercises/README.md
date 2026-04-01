@@ -24,8 +24,9 @@ one topic, maps to a specific lesson, and is ordered from easy to hard.
 | [04 — Modules](../lessons/04-modules-types/) | [intermediate/01-modules.md](intermediate/01-modules.md) | Modules, `use`/`only`, derived types, type-bound procedures | 10 |
 | [05 — File I/O](../lessons/05-file-io/) | [intermediate/02-file-io.md](intermediate/02-file-io.md) | File reading, writing, `iostat`, data pipelines | 8 |
 | [Core Fortran pointers](../lessons/03-arrays-procedures/) | [intermediate/03-pointers.md](intermediate/03-pointers.md) | Pointer association, target, allocatable, recursive objects | 4 |
+| [06 — Testing with fpm](../lessons/06-testing-with-fpm/) | [intermediate/04-testing.md](intermediate/04-testing.md) | Test programs, assertions, tolerances, edge cases | 8 |
 
-**Total: 58 exercises across 7 sets.**
+**Total: 66 exercises across 8 sets.**
 
 ## By topic
 
@@ -38,6 +39,7 @@ one topic, maps to a specific lesson, and is ordered from easy to hard.
 | Modules | [01-modules.md](intermediate/01-modules.md) |
 | File I/O | [02-file-io.md](intermediate/02-file-io.md) |
 | Pointers | [03-pointers.md](intermediate/03-pointers.md) |
+| Testing | [04-testing.md](intermediate/04-testing.md) |
 
 ## Solutions
 

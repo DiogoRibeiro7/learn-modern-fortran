@@ -41,10 +41,9 @@ Teach how to organize code into modules, define custom types, and test with `fpm
 
 ### v0.2 current state
 
-- Lessons 04 and 05 are fully expanded
-- Lesson 06 exists as a concise guidance lesson
+- Lessons 04, 05, and 06 are fully expanded
 - `modules-types`, `statistics`, and `vector-ops` examples reinforce module structure
-- Intermediate exercises and worked solutions are present
+- Intermediate exercises and worked solutions are present, including 8 testing exercises
 
 ---
 
@@ -86,6 +85,27 @@ Teach learners to work like developers, not only like script writers.
 - style guide added
 - lightweight CI added for builds and tested `fpm` packages
 - repository documentation is more consistent, though advanced debugging guidance is still pending
+
+---
+
+## v0.8 — Testing, projects, and interop (in progress)
+
+Button up the final pre-v1.0 chapter depth by expanding lessons 06, 07, and 08 with practical, tested content.
+
+### v0.8 deliverables
+
+- Fully expanded lesson 06 with explicit `fpm test` patterns, assertion helpers, and tolerance guidance
+- Fully expanded lesson 07 with mini-project walkthroughs (Monte Carlo π, Euler ODE, matrix toolkit) and test strategy
+- Fully expanded lesson 08 with `iso_c_binding`, Fortran↔C call examples, array layout notes, and build/link commands
+- Update release notes and roadmap with v0.8 success markers
+- Confirm CI test matrix includes `fpm test` for vector-ops and all three projects
+
+### v0.8 current state
+
+- content expanded in lessons 06-08
+- release notes updated with v0.8 section
+- roadmap now includes a v0.8 milestone
+- pending: CI baseline verification in workflow
 
 ---
 
@@ -142,9 +162,9 @@ Help learners read existing Fortran codebases without adopting poor style.
 ### Current assessment against v1.0
 
 - examples, exercises, projects, and repository documentation are in strong shape
-- lessons 01-05 and 09 meet the "fully expanded" bar
-- lessons 06-08 are still useful but shorter than the v1.0 target depth
-- the repository is publishable now if that remaining scope is described honestly
+- lessons 01-05, 06-08, and 09 now meet the "fully expanded" bar
+- the repository is publishable now with a strong v0.8 delivery and v1.0 stabilization checklist
+- future work can focus on capstone projects, advanced performance topics, and optional tools (pFUnit, LAPACK/BLAS)
 
 ---
 

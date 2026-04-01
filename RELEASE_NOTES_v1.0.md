@@ -33,7 +33,7 @@ mini-projects.
 - [x] CI validates representative builds and package tests
 - [x] contributor guidance includes a repository style guide
 - [x] legacy-modernization content is present and practical
-- [ ] lessons 06-08 are fully expanded to the same depth as lessons 01-05 and 09
+- [x] lessons 06-08 are fully expanded to the same depth as lessons 01-05 and 09
 
 ## What CI validates
 
