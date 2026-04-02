@@ -20,6 +20,22 @@ All notable repository-level changes are recorded here.
 
 - (no functional code changes in v0.8 docs work)
 
+## [v0.9] - 2026-04-02
+
+### Added
+
+- plan for lesson 10: advanced performance and parallel programming
+- roadmap entry describing coarrays/OpenMP and benchmark projects
+- new CI workflow for v0.9 package matrix validation
+
+### Changed
+
+- added v0.9 planning checkpoint in ROADMAP
+
+### Fixed
+
+- N/A (planning update only)
+
 ## [v1.0] - 2026-03-28
 
 ### Added

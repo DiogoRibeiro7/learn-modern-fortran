@@ -65,6 +65,7 @@ Describe this repository as:
 
 ## Next improvements after v1.0
 
+- plan and implement v0.9 with advanced parallelism, performance, and coarray/OpenMP content
 - expand lessons 06-08 to match the depth of the earlier lessons
 - add one larger capstone project
 - extend the reading list and glossary with more cross-links

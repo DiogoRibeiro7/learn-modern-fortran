@@ -148,6 +148,25 @@ Help learners read existing Fortran codebases without adopting poor style.
 
 ---
 
+## v0.9 — Advanced performance and parallelism (planned)
+
+Extend the learning path with deeper performance engineering and parallel programming topics.
+
+### v0.9 planned content
+
+- New lesson 10 and examples for coarrays and OpenMP
+- Performance patterns for array memory layout and vectorization
+- Provide hands-on project: `examples/parallel-matrix` with `fpm` tests
+- Add intermediate exercises with solutions for coarrays/OpenMP
+- Enhance CI with a v0.9 validation workflow and benchmark checks
+
+### v0.9 current state
+
+- roadmap and initial direction defined
+- v0.8 complete, transition to v0.9 in progress
+
+---
+
 ## v1.0 — Complete learning track
 
 ### v1.0 success criteria
