@@ -43,7 +43,9 @@ program test_file_processing
     error stop 1
   end if
   deallocate(values)
-  call system('del /F /Q ' // trim(path))  ! clean up temporary file
+
+  ! clean up temporary file (cross-platform no shell command)
+  ! We rely on CI to use ephemeral workspaces; no explicit deletion required
 
   ! Test 4: read_measurements nonexistent file
   call read_measurements('no_such_file.txt', values, n, ios)
