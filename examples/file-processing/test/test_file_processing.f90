@@ -12,24 +12,31 @@ program test_file_processing
   allocate(values(3))
   values = [1.0, 2.0, 3.0]
   call compute_statistics(values, 3, mean_val, min_val, max_val, std_val)
-  if (abs(mean_val - 2.0) > tol .or. min_val /= 1.0 .or. max_val /= 3.0 .or. abs(std_val - sqrt(2.0/3.0)) > tol) then
+  if (abs(mean_val - 2.0) > tol .or. min_val /= 1.0 .or. max_val /= 3.0 .or. &
+      abs(std_val - sqrt(2.0 / 3.0)) > tol) then
     print *, 'FAIL: compute_statistics normal case'
     error stop 1
   end if
 
   ! Test 2: compute_statistics with n=0
   call compute_statistics(values, 0, mean_val, min_val, max_val, std_val)
-  if (mean_val /= 0.0 .or. min_val /= 0.0 .or. max_val /= 0.0 .or. std_val /= 0.0) then
+  if (mean_val /= 0.0 .or. min_val /= 0.0 .or. max_val /= 0.0 .or. &
+      std_val /= 0.0) then
     print *, 'FAIL: compute_statistics n=0'
     error stop 1
   end if
 
   deallocate(values)
 
-  ! Test 3: read_measurements valid file
+  ! Test 3: read_measurements valid file.
+  ! The example contract is one measurement per sequential record.
   path = 'test_data_measurements.txt'
   open(newunit=i, file=path, status='replace', action='write')
-  write(i,*) 10.0, 20.0, 30.0, 40.0, 50.0
+  write(i, *) 10.0
+  write(i, *) 20.0
+  write(i, *) 30.0
+  write(i, *) 40.0
+  write(i, *) 50.0
   close(i)
 
   allocate(values(10))
@@ -38,21 +45,23 @@ program test_file_processing
     print *, 'FAIL: read_measurements valid file (open/read) - ios=', ios, 'n=', n
     error stop 1
   end if
-  if (any(abs(values(1:n) - [10.0,20.0,30.0,40.0,50.0]) > tol)) then
+  if (any(abs(values(1:n) - [10.0, 20.0, 30.0, 40.0, 50.0]) > tol)) then
     print *, 'FAIL: read_measurements valid file values mismatch'
     error stop 1
   end if
   deallocate(values)
 
-  ! clean up temporary file (cross-platform no shell command)
-  ! We rely on CI to use ephemeral workspaces; no explicit deletion required
+  open(newunit=i, file=path, status='old', iostat=ios)
+  if (ios == 0) close(i, status='delete')
 
   ! Test 4: read_measurements nonexistent file
+  allocate(values(1))
   call read_measurements('no_such_file.txt', values, n, ios)
   if (ios == 0) then
     print *, 'FAIL: read_measurements nonexistent file should set ios nonzero'
     error stop 1
   end if
+  deallocate(values)
 
   print *, 'PASS: file-processing tests'
 end program test_file_processing
