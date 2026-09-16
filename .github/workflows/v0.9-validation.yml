@@ -31,6 +31,8 @@ jobs:
             path: projects/ode-solver
           - name: matrix-toolkit
             path: projects/matrix-toolkit
+          - name: heat-diffusion
+            path: projects/heat-diffusion
 
     steps:
       - name: Check out repository

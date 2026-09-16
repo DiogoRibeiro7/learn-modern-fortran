@@ -47,22 +47,18 @@ modules, testing, performance awareness, parallel execution, and reproducibility
 - [ ] multi-image coarray test environment
 - [ ] vectorization/profiling workflow and optimization-report guidance
 
-## Phase 6 — Portfolio-grade scientific system (next)
+## Phase 6 — Portfolio-grade scientific system (in progress)
 
-- [ ] choose one substantial numerical problem with a known verification target
-- [ ] serial reference implementation
-- [ ] optimized/parallel implementation
-- [ ] convergence or residual-based verification
-- [ ] deterministic test fixtures
-- [ ] reproducible benchmark protocol
-- [ ] architecture and numerical-method documentation
-
-Candidate systems:
-
-- finite-difference heat/diffusion solver;
-- conjugate-gradient solver for sparse symmetric positive-definite systems;
-- tiled stencil computation with OpenMP;
-- small N-body or particle simulation with conservation checks.
+- [x] choose a substantial numerical problem with a known verification target: 1D heat equation
+- [x] serial FTCS reference implementation
+- [x] OpenMP stencil implementation
+- [x] analytical sine-mode verification target
+- [x] deterministic test fixtures
+- [x] grid-convergence test with `dt = O(dx^2)`
+- [x] architecture and numerical-method documentation
+- [ ] controlled benchmark protocol
+- [ ] repeated benchmark results with machine/compiler metadata
+- [ ] optional restart/checkpoint demonstration
 
 ## Optional ecosystem depth
 
@@ -78,7 +74,6 @@ story:
 
 ## Release direction
 
-The repository already has enough breadth for a teaching release. New work should
-prefer **depth over additional language coverage**. A strong next release should be
-defined by one serious verified scientific-computing project rather than another
-sequence of small syntax lessons.
+The repository has enough language breadth. New work should deepen the
+`heat-diffusion` system, especially reproducible performance measurement and
+operational features, before adding more standalone language lessons.
