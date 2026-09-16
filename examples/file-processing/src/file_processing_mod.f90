@@ -1,4 +1,5 @@
 module file_processing_mod
+  use, intrinsic :: iso_fortran_env, only : iostat_end
   implicit none
   private
   public :: read_measurements, compute_statistics
@@ -12,20 +13,20 @@ contains
     integer, intent(out) :: ios
 
     integer :: unit
+
     n = 0
 
     open(newunit=unit, file=filepath, status='old', action='read', iostat=ios)
     if (ios /= 0) return
 
-    do
+    do while (n < size(values))
       read(unit, *, iostat=ios) values(n + 1)
       if (ios /= 0) exit
       n = n + 1
-      if (n >= size(values)) exit
     end do
 
-    if (ios == 62) then
-      ios = 0  ! end-of-file reached normally
+    if (ios == iostat_end) then
+      ios = 0
     end if
 
     close(unit)
