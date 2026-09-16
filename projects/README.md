@@ -1,9 +1,7 @@
 # Projects
 
-Standalone `fpm` projects that turn lesson topics into small but realistic
-teaching artifacts. Each project now includes a runnable reference
-implementation, a project README, a starter scaffold, and at least one test for
-the reusable logic.
+Standalone `fpm` projects that move from small teaching problems toward verified
+scientific-computing systems.
 
 ## How to run a project
 
@@ -17,20 +15,31 @@ fpm test
 
 | Folder | Problem | Highlights |
 | ------ | ------- | ---------- |
-| [monte-carlo-pi](monte-carlo-pi/) | Estimate `pi` from random sampling in the unit square | random sampling, convergence reporting, simple CLI, deterministic geometric test |
-| [ode-solver](ode-solver/) | Approximate an initial value problem with forward Euler | mathematical update rule, reusable solver, exact-solution comparison, solver test |
-| [matrix-toolkit](matrix-toolkit/) | Build reusable helpers for small numeric tables | 2D arrays, row/column handling, procedure design, array-result tests |
+| [monte-carlo-pi](monte-carlo-pi/) | Estimate `pi` from random sampling | random sampling, convergence reporting, deterministic geometric test |
+| [ode-solver](ode-solver/) | Forward Euler initial-value solver | reusable solver, exact-solution comparison, numerical test |
+| [matrix-toolkit](matrix-toolkit/) | Small matrix/statistics toolkit | 2D arrays, reusable module design, array-result tests |
+| [heat-diffusion](heat-diffusion/) | 1D heat equation with finite differences | FTCS stability, analytical verification, OpenMP stencil, grid convergence |
 
-## When to use these
+## Project progression
 
-These projects are best attempted after completing lessons 01-06.
-They connect to [Lesson 07 — Numerical mini-projects](../lessons/07-numerical-mini-projects/).
+The first three projects are compact teaching artifacts. `heat-diffusion` is the
+first portfolio-grade scientific system in the repository: the method, stability
+restriction, reference solution, parallel equivalence, and convergence evidence
+are all part of the executable contract.
 
-## Teaching pattern
+## Engineering pattern
 
-Each project is organized to support several kinds of learning:
+For substantial numerical projects, prefer this structure:
 
-- read the root `README.md` for the problem statement and design notes
-- run the completed implementation in `app/` and `src/`
-- inspect `test/` to see what reusable logic should be checked automatically
-- attempt the `starter/` scaffold before comparing against the reference code
+```text
+mathematical problem
+    -> discretization
+    -> serial reference
+    -> verified implementation
+    -> parallel/optimized implementation
+    -> convergence or residual evidence
+    -> controlled benchmarking
+```
+
+Performance claims should come after correctness and should be supported by a
+reproducible benchmark protocol rather than a single timing measurement.
